@@ -18,8 +18,5 @@
     prefixLength = 28;
   } ];
   networking.defaultGateway = "91.228.90.81";
-
-  system.stateVersion = "19.09"; # Did you read the comment?
-
 }
 

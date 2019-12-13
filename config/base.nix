@@ -23,6 +23,14 @@
   networking.useDHCP = false;
   networking.firewall.enable = true;
   networking.nameservers = [ "91.228.90.132" ];
+  networking = {
+    timeServers = [
+      "sth1.ntp.se"
+      "sth2.ntp.se"
+      "ntp3.sptime.se"
+      "ntp4.sptime.se"
+      ];
+    };
 
   networking.firewall.allowedTCPPorts = [ 22 ];
 
@@ -35,6 +43,21 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  nix = {
+    autoOptimiseStore = true;
+    gc = {
+      automatic = true;
+      dates = "03:30";
+      options = "--delete-older-than 90d";
+    };
+    optimise = {
+      automatic = true;
+      dates = ["04:00"];
+    };
+  };
+
+  system.stateVersion = "19.09";
 
 }
 
