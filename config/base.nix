@@ -44,6 +44,8 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  time.timeZone = "Europe/Stockholm";
+
   nix = {
     autoOptimiseStore = true;
     gc = {
