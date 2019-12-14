@@ -22,7 +22,7 @@
 
   networking.useDHCP = false;
   networking.firewall.enable = true;
-  networking.nameservers = [ "91.228.90.132" ];
+  networking.nameservers = [ "91.228.90.93" ];
   networking = {
     timeServers = [
       "sth1.ntp.se"
