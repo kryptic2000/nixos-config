@@ -8,6 +8,7 @@ if [ $# -ne 1 ] ; then
     usage
 else
     cd /etc/nixos/
+    echo "rm configuration.nix"
     pat='^([A-Za-z0-9]+)\.(.*)'
     [[ "$1" =~ $pat ]]
     echo HOST="${BASH_REMATCH[1]}"
