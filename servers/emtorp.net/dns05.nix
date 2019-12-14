@@ -12,11 +12,11 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  networking.hostName = "dns04.emtorp.net";
+  networking.hostName = "dns05.emtorp.net";
   networking.interfaces.enp0s3.ipv4.addresses = [ {
-    address = "91.228.90.93";
+    address = "91.228.90.132";
     prefixLength = 28;
   } ];
-  networking.defaultGateway = "91.228.90.81";
+  networking.defaultGateway = "91.228.90.129";
 }
 
