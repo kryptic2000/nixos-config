@@ -28,11 +28,7 @@ in
 
   services.postfix = {
     enable = true;
-
-    transport = [
-                "emtorp.net smtp:[mta01.emtorp.net]:25"
-                "emtorp.se smtp:[mta01.emtorp.net]:25"
-                ];
+    relayHost = "mta01.emtorp.net";
     relayDomains = [
 		"emtorp.net"
 		"emtorp.se"
