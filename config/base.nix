@@ -22,7 +22,7 @@
 
   networking.useDHCP = false;
   networking.firewall.enable = true;
-  networking.nameservers = [ "91.228.90.93" ];
+  networking.nameservers = [ "2001:67c:22fc:100::93" ];
   networking = {
     timeServers = [
       "sth1.ntp.se"
@@ -39,6 +39,7 @@
       enable = true;
       permitRootLogin = "no";
       passwordAuthentication = false;
+      extraConfig = "MaxAuthTries 1";
     };
   };
 
