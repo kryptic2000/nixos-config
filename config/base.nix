@@ -32,7 +32,7 @@
       ];
     };
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.extraCommands = "iptables -A nixos-fw -p tcp -m state --state NEW --source 91.228.90.0/24 --dport 22 -j ACCEPT";
 
   services = {
     openssh = {
@@ -40,6 +40,7 @@
       permitRootLogin = "no";
       passwordAuthentication = false;
       extraConfig = "MaxAuthTries 1";
+      openFirewall = false;
     };
   };
 
