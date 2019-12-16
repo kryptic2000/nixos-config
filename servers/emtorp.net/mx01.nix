@@ -17,6 +17,12 @@
     address = "91.228.90.88";
     prefixLength = 28;
   } ];
+  networking.interfaces.enp0s3.ipv6.addresses = [ {
+    address = "2001:67c:22fc:100::88";
+    prefixLength = 64;
+  } ];
+
   networking.defaultGateway = "91.228.90.81";
+  networking.defaultGateway6 = "2001:67c:22fc:100::1";
 }
 
