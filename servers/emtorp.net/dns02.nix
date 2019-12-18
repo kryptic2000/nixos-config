@@ -14,11 +14,11 @@
 
   networking.hostName = "dns02.emtorp.net";
   networking.interfaces.ens32.ipv4.addresses = [ {
-    address = "91.228.90.137";
+    address = "91.228.90.136";
     prefixLength = 28;
   } ];
   networking.interfaces.ens32.ipv6.addresses = [ {
-    address = "2001:67c:22fc:1::137";
+    address = "2001:67c:22fc:1::136";
     prefixLength = 64;
   } ];
   networking.interfaces.lo.ipv4.addresses = [ {
