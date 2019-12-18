@@ -13,6 +13,6 @@ else
     [[ "$1" =~ $pat ]]
     echo HOST="${BASH_REMATCH[1]}"
     echo DOMAIN="${BASH_REMATCH[2]}"
-    n -sr /etc/nixos/nixos-config/servers/${BASH_REMATCH[2]}/${BASH_REMATCH[1]}.nix configuration.nix
+    ln -sr /etc/nixos/nixos-config/servers/${BASH_REMATCH[2]}/${BASH_REMATCH[1]}.nix configuration.nix
     nixos-rebuild switch --upgrade
 fi
