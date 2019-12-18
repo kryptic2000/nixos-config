@@ -12,7 +12,7 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  networking.hostName = "mx01.emtorp.net";
+  networking.hostName = "mx02.emtorp.net";
   networking.interfaces.ens32.ipv4.addresses = [ {
     address = "91.228.90.134";
     prefixLength = 28;
