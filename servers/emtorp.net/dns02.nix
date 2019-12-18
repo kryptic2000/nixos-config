@@ -22,7 +22,6 @@
     prefixLength = 64;
   } ];
   networking.interfaces.lo.ipv4.addresses = [ {
-    address = "127.0.0.1";
     address = "91.228.90.35";
     prefixLength = 28;
   } ];
