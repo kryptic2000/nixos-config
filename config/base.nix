@@ -33,6 +33,8 @@
     };
 
   networking.firewall.extraCommands = "iptables -A nixos-fw -p tcp -m state --state NEW --source 91.228.90.0/24 --dport 22 -j ACCEPT";
+  networking.firewall.extraCommands = "iptables -A nixos-fw -p tcp -m state --state NEW --source 2001:67c:22fc:1::/64 --dport 22 -j ACCEPT";
+  networking.firewall.extraCommands = "iptables -A nixos-fw -p tcp -m state --state NEW --source 2001:67c:22fc:100::/64 --dport 22 -j ACCEPT";
 
   services = {
     openssh = {
