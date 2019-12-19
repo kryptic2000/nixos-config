@@ -2,6 +2,13 @@
 
 {
    services.quagga = {
+        zebra = {
+		enable = true;
+		config = ''
+                        password 8 /NaNeW0pPSnMU
+                        service password-encryption
+		'';
+	};
 	bgp = {
 		enable = true;
 		vtyListenPort = 2605;
@@ -26,6 +33,7 @@
                           neighbor ${netcfg.gw6} next-hop-self
 			  neighbor ${netcfg.gw6} prefix-list IMPORT6 in
                           neighbor ${netcfg.gw6} prefix-list ANYCAST6 out
+			  neighbor ${netcfg.gw6} activate
                   '';
                 
 	};
