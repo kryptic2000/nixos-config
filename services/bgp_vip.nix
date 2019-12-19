@@ -1,6 +1,15 @@
 { config, lib, pkgs, netcfg, ... }:
 
 {
+   networking.interfaces.lo.ipv4.addresses = [ {
+        address = netcfg.vip4;
+        prefixLength = 32;
+    } ];
+   networking.interfaces.lo.ipv6.addresses = [ {
+      address = netcfg.vip6;
+      prefixLength = 128;
+   } ];
+
    services.quagga = {
         zebra = {
 		enable = true;
@@ -23,7 +32,7 @@
 			router bgp 65500
 			 bgp router-id ${netcfg.ip4}
 			 network ${netcfg.vip4}/32
-  			 neighbor ${netcfg.gw4} remote-as 56848
+			 neighbor ${netcfg.gw4} remote-as 56848
 			 neighbor ${netcfg.gw4} next-hop-self
 			 neighbor ${netcfg.gw4} prefix-list IMPORT in
 			 neighbor ${netcfg.gw4} prefix-list ANYCAST out
