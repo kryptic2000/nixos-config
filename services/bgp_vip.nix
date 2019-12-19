@@ -10,7 +10,7 @@
 			service password-encryption
 			ip prefix-list ANYCAST seq 5 permit ${netcfg.vip4}/32
 			ip prefix-list IMPORT seq 5 deny any
-			ipv6 prefix-list ANYCAST6 seq 5 permit 2001:67c:22fc:1::137/128
+			ipv6 prefix-list ANYCAST6 seq 5 permit ${netcfg.vip6}/128
 			ipv6 prefix-list IMPORT6 seq 5 deny any
 
 			router bgp 65500
