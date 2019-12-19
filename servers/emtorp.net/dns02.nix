@@ -7,6 +7,7 @@
       ../../config/base.nix
       ../../config/users.nix
       ../../modules/variables.nix
+      ../../config/dns_slave.nix
       ../../config/bgp_vip.nix
     ];
 
@@ -16,6 +17,7 @@
   netcfg.ip4 = "91.228.90.136";
   netcfg.gw4 = "91.228.90.129";
 
+  netcfg.ip6 = "2001:67c:22fc:1::136";
   netcfg.gw6 = "2001:67c:22fc:1::1";
 
   netcfg.vip4 = "91.228.90.35";
@@ -46,4 +48,9 @@
 
   networking.nameservers = [ "8.8.4.4" "8.8.8.8" ];
 
+  environment = {
+    systemPackages = with pkgs; [
+      openssl
+    ];
+  };
 }
