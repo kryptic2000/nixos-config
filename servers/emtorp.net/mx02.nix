@@ -6,6 +6,7 @@
       ../../../hardware-configuration.nix
       ../../config/base.nix
       ../../config/users.nix
+      ../../services/networking.nix
       ../../config/emtorp.net/mx_relay.nix
     ];
 
