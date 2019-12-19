@@ -37,7 +37,7 @@
     };
 
   networking.firewall.extraCommands = ''
-	iptables -A nixos-fw -p tcp -m state --state NEW --source 91.228.90.0/24 --dport 22 -j ACCEPT
+	iptables -A nixos-fw -p tcp -m state --state NEW --source 91.228.90.0/24 --destination ${netcfg.ip4} --dport 22 -j ACCEPT
 	ip6tables -A nixos-fw -p tcp -m state --state NEW --source 2001:67c:22fc:1::/64 --destination ${netcfg.ip6} --dport 22 -j ACCEPT
 	ip6tables -A nixos-fw -p tcp -m state --state NEW --source 2001:67c:22fc:100::/64 --destination ${netcfg.ip6} --dport 22 -j ACCEPT
 	'';

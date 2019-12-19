@@ -33,6 +33,7 @@
                           neighbor ${netcfg.gw6} next-hop-self
 			  neighbor ${netcfg.gw6} prefix-list IMPORT6 in
                           neighbor ${netcfg.gw6} prefix-list ANYCAST6 out
+			 address-family ipv6 unicast
 			  neighbor ${netcfg.gw6} activate
                   '';
                 
