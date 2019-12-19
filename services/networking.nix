@@ -17,6 +17,5 @@
 
   networking.defaultGateway = netcfg.gw4;
   networking.defaultGateway6 = netcfg.gw6;
-  if netcfg.dns then networking.nameservers = netcfg.dns
-  else networking.nameservers = [ "8.8.4.4" "8.8.8.8" ];
+  networking.nameservers = netcfg.ns;
 }

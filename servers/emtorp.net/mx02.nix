@@ -22,7 +22,5 @@
 
   netcfg.iface = "ens32";
   netcfg.hostName = "mx02.emtorp.net";
-
-  netcfg.dns = [ "91.228.90.132" ];
 }
 
