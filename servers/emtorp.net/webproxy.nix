@@ -7,10 +7,17 @@
       ../../config/base.nix
       ../../config/users.nix
       ../../services/networking.nix
+      ../../services/nginx.nix
     ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+
+  environment = {
+    systemPackages = with pkgs; [
+      wireguard
+    ];
+  };
 
 
   netcfg.ip4 = "91.228.90.139";
