@@ -21,5 +21,23 @@
 
   netcfg.iface = "ens32";
   netcfg.hostName = "webproxy.emtorp.net";
+
+  # Enable Wireguard
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "192.168.10.1/24" ];
+      privateKeyFile = "/root/private";
+      listenPort = 12000;
+
+      peers = [
+        {
+          publicKey = "94kR3WxjRXQWYIul1sdFiV/HvhxQqMsUZPf62zFpJng=";
+          allowedIPs = [ "192.168.10.0/24" ];
+          #allowedIPs = [ "0.0.0.0/0" ];
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 }
 
