@@ -53,7 +53,7 @@ services.nginx = {
         enableACME = true;
       };
       proxy = port: base {
-        "/".proxyPass = "http://192.168.1.8:" + toString(port) + "/";
+        "/".proxyPass = "http://192.168.10.2:" + toString(port) + "/";
       };
     in {
       # Define example.com as reverse-proxied service on 127.0.0.1:3000
