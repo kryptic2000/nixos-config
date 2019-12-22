@@ -30,6 +30,7 @@
   netcfg.hostName = "webproxy.emtorp.net";
 
   # Enable Wireguard
+  networking.firewall.allowedTCPPorts = [ 12000 ];
   networking.wireguard.interfaces = {
     wg0 = {
       ips = [ "192.168.10.1/24" ];
