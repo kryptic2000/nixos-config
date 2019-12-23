@@ -50,7 +50,7 @@ services.nginx = {
         inherit locations;
 
         forceSSL = true;
-        #enableACME = true;
+        enableACME = true;
       };
       proxy = port: base {
         "/".proxyPass = "http://192.168.10.2:" + toString(port) + "/";
