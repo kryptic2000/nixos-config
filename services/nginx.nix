@@ -1,8 +1,10 @@
 { config, lib, pkgs, netcfg, ... }:
 
 {
-  networking.firewall.allowedTCPPorts = [ 53 ];
-  networking.firewall.allowedUDPPorts = [ 53 ];
+  networking.firewall.allowedTCPPorts = [ 80 ];
+  networking.firewall.allowedUDPPorts = [ 80 ];
+  networking.firewall.allowedTCPPorts = [ 443 ];
+  networking.firewall.allowedUDPPorts = [ 443 ];
 
 services.nginx = {
     enable = true;
