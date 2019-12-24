@@ -7,6 +7,7 @@
       ../../config/base.nix
       ../../config/users.nix
       ../../services/networking.nix
+      ../../services/influxdb.nix
       ../../services/grafana.nix
     ];
 
