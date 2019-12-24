@@ -3,7 +3,7 @@
   services.grafana = {
 	addr = ""; # listen (bind) to all network interfaces (i.e. 127.0.0.1, and ipAddress)
 	enable = true;
-	port = grafanaPort;
+	port = 3000;
 	domain = "localhost";
 	protocol = "http";
 	dataDir = "/var/lib/grafana";
