@@ -1,3 +1,5 @@
+{ config, lib, pkgs, netcfg, ... }:
+{
   services.grafana = {
 	addr = ""; # listen (bind) to all network interfaces (i.e. 127.0.0.1, and ipAddress)
 	enable = true;
