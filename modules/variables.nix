@@ -11,7 +11,7 @@
     };
     inet6 = lib.mkOption {
       type = lib.types.bool;
-      default = True;
+      default = { True; };
     };
     ip6 = lib.mkOption {
       type = lib.types.str;
