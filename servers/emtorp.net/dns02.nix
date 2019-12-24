@@ -18,6 +18,7 @@
   netcfg.ip4 = "91.228.90.140";
   netcfg.gw4 = "91.228.90.129";
 
+  networking.enableIPv6 = true
   netcfg.ip6 = "2001:67c:22fc:1::140";
   netcfg.gw6 = "2001:67c:22fc:1::1";
 
