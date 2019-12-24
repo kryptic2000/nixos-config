@@ -7,6 +7,7 @@
       ../../config/base.nix
       ../../config/users.nix
       ../../services/networking.nix
+      ../../services/grafana.nix
     ];
 
   # Use the GRUB 2 boot loader.
