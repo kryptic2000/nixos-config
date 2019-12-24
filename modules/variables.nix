@@ -11,11 +11,11 @@
     };
     ip6 = lib.mkOption {
       type = lib.types.str;
-      default = { };
+      default = {"" };
     };
     gw6 = lib.mkOption {
       type = lib.types.str;
-      default = { };
+      default = {"" };
     };
     hostName = lib.mkOption {
       type = lib.types.str;
