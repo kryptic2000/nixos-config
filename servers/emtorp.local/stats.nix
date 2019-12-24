@@ -14,9 +14,8 @@
 
   netcfg.ip4 = "192.168.1.7";
   netcfg.gw4 = "192.168.1.1";
-
-#  netcfg.ip6 = "2001:67c:22fc:100::84";
-#  netcfg.gw6 = "2001:67c:22fc:100::1";
+  networking.enableIPv6 = true;
+  netcfg.ip6 = "fd00::7";
 
   netcfg.iface = "enp0s3";
   netcfg.hostName = "192.168.1.3";
