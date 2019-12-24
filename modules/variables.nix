@@ -9,6 +9,10 @@
       type = lib.types.str;
       default = { };
     };
+    inet6 = lib.mkOption {
+      type = lib.types.bool;
+      default = True;
+    };
     ip6 = lib.mkOption {
       type = lib.types.str;
       default = "";
