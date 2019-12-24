@@ -1,5 +1,16 @@
 { config, lib, pkgs, netcfg, ... }:
-
+let
+  mkGrafanaInfluxSource = db: {
+    name = "metrics";
+    type = "influxdb";
+    database = db;
+    editable = false; # Force editing in this file.
+    access = "proxy";
+    user = "data_ro"; # fill in Grafana InfluxDB user, if enabled
+    password = "pwd";
+    url = ("http://localhost:8086");
+  };
+in
 {
   networking.firewall.allowedTCPPorts = [ 3000 ];
   services.grafana = {
@@ -15,9 +26,9 @@
 	after = [ "network-interfaces.target" ];
 	wants = [ "network-interfaces.target" ];
   };  
-#  services.grafana.provision = {
-#	enable = true;
-#	datasources = map mkGrafanaInfluxSource
-#	  ["my-influx-database-name" "database-name-2"];
-#  };
+  services.grafana.provision = {
+	enable = true;
+	datasources = map mkGrafanaInfluxSource
+	  ["metrics"];
+  };
 }
