@@ -12,6 +12,9 @@
           "emtorp.se" = { data = ''
                 @ SOA ns1.emtorp.net adam.emtorp.se 1 3600 3600 1209600 86400
           '';};
+          "dctorsby.se" = { data = ''
+                @ SOA ns1.emtorp.net adam.emtorp.se 1 3600 3600 1209600 86400
+          '';};
           "90.228.91.in-addr.arpa" = { data = ''
                 @ SOA ns1.emtorp.net adam.emtorp.se 1 3600 3600 1209600 86400
           '';};
