@@ -15,13 +15,13 @@ services.nginx = {
 
     # Only allow PFS-enabled ciphers with AES256
     sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
-    
     commonHttpConfig = ''
       # Add HSTS header with preloading to HTTPS requests.
       # Adding this header to HTTP requests is discouraged
       map $scheme $hsts_header {
           https   "max-age=31536000; includeSubdomains; preload";
       }
+
       add_header Strict-Transport-Security $hsts_header;
 
       # Enable CSP for your services.
@@ -43,21 +43,5 @@ services.nginx = {
       # This might create errors
       proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
     '';
-
-    # Add any further config to match your needs, e.g.:
-    virtualHosts = let
-      base = locations: {
-        inherit locations;
-
-        forceSSL = true;
-        enableACME = true;
-      };
-      proxy = port: base {
-        "/".proxyPass = "http://192.168.10.2:" + toString(port) + "/";
-      };
-    in {
-      # Define example.com as reverse-proxied service on 127.0.0.1:3000
-      "stats.emtorp.net" = proxy 3000 // { default = true; };
-    };
 };
 }

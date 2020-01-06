@@ -20,11 +20,11 @@
   };
 
 
-  netcfg.ip4 = "91.228.90.139";
+  netcfg.ip4 = "91.228.90.139/28";
   netcfg.gw4 = "91.228.90.129";
 
-  networking.enableIPv6 = true
-  netcfg.ip6 = "2001:67c:22fc:1::139";
+  networking.enableIPv6 = true;
+  netcfg.ip6 = "2001:67c:22fc:1::139/64";
   netcfg.gw6 = "2001:67c:22fc:1::1";
 
   netcfg.iface = "ens32";
@@ -48,5 +48,20 @@
       ];
     };
   };
+
+  services.nginx.virtualHosts = let
+      base = locations: {
+        inherit locations;
+        forceSSL = true;
+        enableACME = true;
+      };
+      proxy = port: base {
+        "/".proxyPass = "http://192.168.10.2:" + toString(port) + "/";
+      };
+    
+    in {
+      # Define example.com as reverse-proxied service on 127.0.0.1:3000
+      "stats.emtorp.net" = proxy 3000 // { default = false; };
+    };
 }
 
