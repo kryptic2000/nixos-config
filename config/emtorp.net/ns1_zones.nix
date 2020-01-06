@@ -2,7 +2,7 @@
 {
     services.nsd.zones = {
       "EMTORP" = {
-        outgoingInterface = "${netcfg.ip4}";
+        outgoingInterface = "${netcfg.addr4}";
         allowNotify = [ "91.228.90.85 NOKEY" ];
         requestXFR = [ "91.228.90.85 NOKEY" ];
         children = {
@@ -34,7 +34,7 @@
         };
       };
       "SLAYER" = {
-        outgoingInterface = "${netcfg.ip4}";
+        outgoingInterface = "${netcfg.addr4}";
         allowNotify = [ "213.21.95.204 NOKEY" ];
         requestXFR = [ "213.21.95.204 NOKEY" ];
         children = {

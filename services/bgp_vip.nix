@@ -30,7 +30,7 @@
 			ipv6 prefix-list IMPORT6 seq 5 deny any
 
 			router bgp 65500
-			 bgp router-id ${netcfg.ip4}
+			 bgp router-id ${netcfg.addr4}
 			 network ${netcfg.vip4}/32
 			 neighbor ${netcfg.gw4} remote-as 56848
 			 neighbor ${netcfg.gw4} next-hop-self

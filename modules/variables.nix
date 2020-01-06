@@ -5,11 +5,11 @@
       type = lib.types.str;
       default = { };
     };
-    addr4 = lib.mkOption {
+    vip4 = lib.mkOption {
       type = lib.types.str;
       default = { };
     };
-    addr6 = lib.mkOption {
+    addr4 = lib.mkOption {
       type = lib.types.str;
       default = { };
     };
@@ -24,6 +24,14 @@
     ip6 = lib.mkOption {
       type = lib.types.str;
       default = "";
+    };
+    vip6 = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+    };
+    addr6 = lib.mkOption {
+      type = lib.types.str;
+      default = { };
     };
     gw6 = lib.mkOption {
       type = lib.types.str;
