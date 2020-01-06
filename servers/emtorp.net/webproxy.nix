@@ -58,10 +58,14 @@
       proxy = port: base {
         "/".proxyPass = "http://192.168.10.2:" + toString(port) + "/";
       };
-    
+      www = port: base {
+        "/".proxyPass = "http://91.228.90.87:" + toString(port) + "/";
+      };
     in {
       # Define example.com as reverse-proxied service on 127.0.0.1:3000
       "stats.emtorp.net" = proxy 3000 // { default = false; };
+      "www.emtorp.se" = www 8081 // { default = false; };
+      "emtorp.se" = www 8081 // { default = false; };
     };
 }
 
