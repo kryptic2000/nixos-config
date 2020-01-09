@@ -39,7 +39,6 @@
 			 address-family ipv6
 			  network ${netcfg.vip6}/128
                           neighbor ${netcfg.gw6} remote-as 56848
-                          neighbor ${netcfg.gw6} next-hop-self
 			  neighbor ${netcfg.gw6} prefix-list IMPORT6 in
                           neighbor ${netcfg.gw6} prefix-list ANYCAST6 out
 			 address-family ipv6 unicast

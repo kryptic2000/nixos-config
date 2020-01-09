@@ -19,7 +19,7 @@
   netcfg.gw4 = "91.228.90.129";
 
   netcfg.addr4 = "91.228.90.140";
-  netcfg.addr6 = "2001:67c:22fc:100::140";
+  netcfg.addr6 = "2001:67c:22fc:1::140";
 
   networking.enableIPv6 = true;
   netcfg.ip6 = "2001:67c:22fc:1::140/64";
