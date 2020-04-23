@@ -8,7 +8,7 @@ let
     name = "policyd-spf.conf";
     text = ''
 debugLevel = 2
-HELO_reject = Fail
+HELO_reject = False
 Mail_From_reject = Fail
 PermError_reject = False
 TempError_Defer = False
