@@ -43,9 +43,9 @@ in
     config = {
       smtpd_helo_required = true;
       smtpd_helo_restrictions = [
-        "reject_invalid_helo_hostname"
+       # "reject_invalid_helo_hostname"
 	"reject_non_fqdn_helo_hostname"
-        "reject_unknown_helo_hostname"
+       # "reject_unknown_helo_hostname"
       ];
       smtpd_sender_restrictions = [
         "reject_non_fqdn_sender"
