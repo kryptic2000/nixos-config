@@ -14,11 +14,14 @@
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
 
-  netcfg.ip4 = "91.228.90.88";
+  netcfg.ip4 = "91.228.90.88/28";
   netcfg.gw4 = "91.228.90.81";
 
-  networking.enableIPv6 = true
-  netcfg.ip6 = "2001:67c:22fc:100::88";
+  netcfg.addr4 = "91.228.90.88";
+  netcfg.addr6 = "2001:67c:22fc:100::88";
+
+  networking.enableIPv6 = true;
+  netcfg.ip6 = "2001:67c:22fc:100::88/64";
   netcfg.gw6 = "2001:67c:22fc:100::1";
 
   netcfg.iface = "enp0s3";
