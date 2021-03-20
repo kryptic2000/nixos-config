@@ -30,6 +30,15 @@
   netcfg.iface = "ens32";
   netcfg.hostName = "fe-lb02.emtorp.net";
 
+  networking.firewall.extraCommands = "iptables -A INPUT -p vrrp -j ACCEPT";
+  services.keepalived.enable = true;
+    services.keepalived.vrrpInstances.fe = {
+    interface = "ens32";
+    state = "MASTER";
+    priority = 50;
+    virtualIps = [{ addr = "91.228.90.54"; }];
+    virtualRouterId = 230;
+
   services.nginx.virtualHosts = let
       base = locations: {
         inherit locations;
