@@ -29,4 +29,4 @@
   services.mysql.replication.role = "master"
   services.mysql.replication.slaveHost = "%";
   services.mysql.replication.masterUser = repl;
-  services.mysql.replication.masterPassword = [ (builtins.readFile ./repl.pwd) ];;
+  services.mysql.replication.masterPassword = [ (builtins.readFile ./repl.pwd) ];
