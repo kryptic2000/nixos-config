@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../../hardware-configuration.nix
-      ../../config/base.nix
+      ../../config/base20.nix
       ../../config/users.nix
       ../../services/networking.nix
       ../../services/mysql.nix
@@ -27,6 +27,13 @@
     ];
   };
   services.mysql.replication.role = "master";
+  services.mysql.replication.serverId = 1;
   services.mysql.replication.slaveHost = "%";
-  services.mysql.replication.masterUser = repl;
-  services.mysql.replication.masterPassword = [ (builtins.readFile ./repl.pwd) ];
+  services.mysql.replication.masterUser = "repl";
+  services.mysql.replication.masterPassword = (builtins.readFile /etc/nixos/.repl.pwd);
+  services.mysql.initialDatabases = [{ name = "magento"; }];
+  services.mysql.ensureDatabases = [ "magento" ];
+
+}
+
+
