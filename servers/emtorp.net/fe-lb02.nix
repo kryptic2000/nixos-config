@@ -30,6 +30,10 @@
   netcfg.iface = "ens32";
   netcfg.hostName = "fe-lb02.emtorp.net";
 
+  networking.interfaces.ens34.ipv4.addresses = [ {
+   address = "10.5.1.2";
+    prefixLength = 24;
+  } ];
 
   networking.firewall.extraCommands = "iptables -A INPUT -p vrrp -j ACCEPT";
   services.keepalived.enable = true;
