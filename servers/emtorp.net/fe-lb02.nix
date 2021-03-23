@@ -30,32 +30,34 @@
   netcfg.iface = "ens32";
   netcfg.hostName = "fe-lb02.emtorp.net";
 
+
   networking.firewall.extraCommands = "iptables -A INPUT -p vrrp -j ACCEPT";
   services.keepalived.enable = true;
     services.keepalived.vrrpInstances.fe = {
     interface = "ens32";
     state = "MASTER";
     priority = 50;
-    virtualIps = [{ addr = "91.228.90.54"; }];
+    virtualIps = [{addr="91.228.90.54";} {addr="2001:67c:22fc:300::f";}];
     virtualRouterId = 230;
+  };
+  services.nginx.upstreams.magento.servers."10.5.1.21" = {};
+  services.nginx.upstreams.magento.servers."10.5.1.11" = {};
+  services.nginx.upstreams.magento.extraConfig = ''
+    ip_hash;
+  '';
 
-  services.nginx.virtualHosts = let
-      base = locations: {
-        inherit locations;
+  services.nginx.virtualHosts."devkit.se" = {
         forceSSL = true;
         enableACME = true;
+        locations."/" = {
+          proxyPass = "http://magento";
       };
-      proxy = port: base {
-        "/".proxyPass = "http://192.168.10.2:" + toString(port) + "/";
+  };
+  services.nginx.virtualHosts."www.devkit.se" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://magento";
       };
-      www = port: base {
-        "/".proxyPass = "http://91.228.90.87:" + toString(port) + "/";
-      };
-    in {
-      # Define example.com as reverse-proxied service on 127.0.0.1:3000
-      "stats.emtorp.net" = proxy 3000 // { default = false; };
-      "www.emtorp.se" = www 8081 // { default = false; };
-      "emtorp.se" = www 8081 // { default = false; };
-    };
+  };
 }
-
