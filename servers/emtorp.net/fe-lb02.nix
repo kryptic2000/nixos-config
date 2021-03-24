@@ -8,6 +8,7 @@
       ../../config/users.nix
       ../../services/networking.nix
       ../../services/nginx.nix
+      ../../services/varnish.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -44,24 +45,32 @@
     virtualIps = [{addr="91.228.90.54";} {addr="2001:67c:22fc:300::f";}];
     virtualRouterId = 230;
   };
-  services.nginx.upstreams.magento.servers."10.5.1.21" = {};
-  services.nginx.upstreams.magento.servers."10.5.1.11" = {};
+  services.nginx.upstreams.magento.servers."10.5.1.20" = {};
+  services.nginx.upstreams.elasticsearch.servers."10.5.1.20:8080" = {};
+#  services.nginx.upstreams.magento.servers."10.5.1.10" = {};
   services.nginx.upstreams.magento.extraConfig = ''
     ip_hash;
   '';
 
-  services.nginx.virtualHosts."devkit.se" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://magento";
-      };
-  };
   services.nginx.virtualHosts."www.devkit.se" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://magento";
+          proxyPass = "http://magento/";
+          extraConfig = ''
+            proxy_buffer_size 128k;
+            proxy_buffers 4 256k;
+            proxy_busy_buffers_size 256k;
+          '';
+      };
+        locations."/rabbit/" = {
+          proxyPass = "http://magento/rabbit/";
+      };
+        locations."/es/" = {
+          proxyPass = "http://elasticsearch/";
+      };
+        locations."/_cluster/health/" = {
+          proxyPass = "http://elasticsearch/_cluster/health/";
       };
   };
 }
