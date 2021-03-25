@@ -40,3 +40,4 @@
         "magento.*" = "ALL PRIVILEGES";
       };
   }];
+}
