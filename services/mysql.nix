@@ -6,6 +6,7 @@
   users.users.mysql = { };
 
   services.mysql.enable = true;
+  services.mysql.dataDir = "/var/lib/mysql";
   services.mysql.user = "mysql";
   services.mysql.package = pkgs.mysql80;
   services.mysql.port = 3306;
