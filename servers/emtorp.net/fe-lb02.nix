@@ -45,32 +45,22 @@
     virtualIps = [{addr="91.228.90.54";} {addr="2001:67c:22fc:300::f";}];
     virtualRouterId = 230;
   };
-  services.nginx.upstreams.magento.servers."10.5.1.20" = {};
+  services.nginx.upstreams.varnish.servers."127.0.0.1:6081" = {};
   services.nginx.upstreams.elasticsearch.servers."10.5.1.20:8080" = {};
-#  services.nginx.upstreams.magento.servers."10.5.1.10" = {};
-  services.nginx.upstreams.magento.extraConfig = ''
-    ip_hash;
-  '';
 
   services.nginx.virtualHosts."www.devkit.se" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://magento/";
+          proxyPass = "http://varnish/";
           extraConfig = ''
             proxy_buffer_size 128k;
             proxy_buffers 4 256k;
             proxy_busy_buffers_size 256k;
           '';
-      };
-        locations."/rabbit/" = {
-          proxyPass = "http://magento/rabbit/";
-      };
-        locations."/es/" = {
-          proxyPass = "http://elasticsearch/";
-      };
+        };
         locations."/_cluster/health/" = {
           proxyPass = "http://elasticsearch/_cluster/health/";
-      };
+        };
   };
 }
