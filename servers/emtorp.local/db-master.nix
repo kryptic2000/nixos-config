@@ -30,7 +30,7 @@
   services.mysql.initialDatabases = [{
     name = "magento";
   }];
-  services.mysql.initialScript = ''
+  services.mysql.initialScript = pkgs.writeText "mysql-init.sql" ''
     CREATE USER 'magento'@'localhost' IDENTIFIED BY 'default';
     GRANT ALL PRIVILEGES ON magento.* TO 'magento'@'%';
   '';
