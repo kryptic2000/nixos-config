@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../../hardware-configuration.nix
-      ../../config/base20.nix
+      ../../config/base.nix
       ../../config/users.nix
       ../../services/networking.nix
       ../../services/mysql.nix
@@ -26,18 +26,11 @@
       #openssl
     ];
   };
-
-  services.mysql.initialDatabases = [{
-    name = "magento";
-  }];
-  services.mysql.initialScript = pkgs.writeText "mysql-init.sql" ''
-    CREATE USER 'magento'@'localhost' IDENTIFIED BY 'default';
-    GRANT ALL PRIVILEGES ON magento.* TO 'magento'@'%';
-  '';
-  services.mysql.ensureUsers = [{
-    name = "magento";
-      ensurePermissions = {
-        "magento.*" = "ALL PRIVILEGES";
-      };
-  }];
+  services.mysql.ensureDatabases = [ "magento" ];
+  services.mysql.replication.role = "master";
+  services.mysql.replication.serverId = 1;
+  services.mysql.replication.masterUser = "replication";
+  services.mysql.replication.masterPassword = "temp";
+  services.mysql.replication.slaveHost = "10.5.20.11";
 }
+
