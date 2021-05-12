@@ -28,8 +28,6 @@ in
 
   services.postfix = {
     enable = true;
-  services.postfix = {
-    enable = true;
     #relayHost = "mta01.emtorp.net";
     relayDomains = [
                 "emtorp.net"
