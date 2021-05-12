@@ -28,18 +28,25 @@ in
 
   services.postfix = {
     enable = true;
-    relayHost = "mta01.emtorp.net";
+  services.postfix = {
+    enable = true;
+    #relayHost = "mta01.emtorp.net";
     relayDomains = [
-		"emtorp.net"
-		"emtorp.se"
-		];
+                "emtorp.net"
+                "emtorp.se"
+                "devkit.se"
+                ];
     dnsBlacklists = [
-		"zen.spamhaus.org"
-		"sbl.spamhaus.org"
-		"bl.spamcop.net"
-		"cbl.abuseat.org"
-		];
-
+                "zen.spamhaus.org"
+                "sbl.spamhaus.org"
+                "bl.spamcop.net"
+                "cbl.abuseat.org"
+                ];
+    transport = ''
+                emtorp.se     smtp:[mta01.emtorp.net]:25
+                emtorp.net    smtp:[mta01.emtorp.net]:25
+                devkit.se     lmtp:[91.228.90.136]:2424
+    '';
     config = {
       smtpd_helo_required = true;
       smtpd_helo_restrictions = [
