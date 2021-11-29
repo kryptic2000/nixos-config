@@ -39,13 +39,13 @@
         requestXFR = [ "213.21.95.204 NOKEY" ];
         children = {
           "slayer.se" = { data = ''
-                @ SOA postmortem.slayer.se conny.blackmetal.org 1 3600 3600 1209600 86400
+                @ SOA procyon.rosendal.nu conny.blackmetal.org 1 3600 3600 1209600 86400
           '';};
           "blackmetal.org" = { data = ''
-                @ SOA postmortem.slayer.se conny.blackmetal.org 1 3600 3600 1209600 86400
+                @ SOA procyon.rosendal.nu conny.blackmetal.org 1 3600 3600 1209600 86400
           '';};
           "danzig.se" = { data = ''
-                @ SOA postmortem.slayer.se conny.blackmetal.org 1 3600 3600 1209600 86400
+                @ SOA procyon.rosendal.nu conny.blackmetal.org 1 3600 3600 1209600 86400
           '';};
         };
       };
