@@ -13,11 +13,11 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  netcfg.ip4 = "91.228.90.93";
+  netcfg.ip4 = "91.228.90.93/28";
   netcfg.gw4 = "91.228.90.81";
 
-  networking.enableIPv6 = true
-  netcfg.ip6 = "2001:67c:22fc:1::93";
+  networking.enableIPv6 = true;
+  netcfg.ip6 = "2001:67c:22fc:1::93/64";
   netcfg.gw6 = "2001:67c:22fc:1::1";
 
   netcfg.iface = "enp0s3";
