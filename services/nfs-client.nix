@@ -2,7 +2,7 @@
 
 {
   fileSystems."/mnt/maildir" = {
-    device = "10.5.1.5:/opt/export/maildir";
+    device = "10.5.1.5:/opt/export/maildir/";
     fsType = "nfs";
   };
 }
