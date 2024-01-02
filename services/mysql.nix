@@ -6,12 +6,9 @@
 
   services.mysql = {
     enable = true;
-#    package = pkgs.mysql80;
+    package = pkgs.mysql80;
     dataDir = "/var/lib/mysql";
     settings.mysqld.plugin-load-add = ["auth_socket.so"];
-#    extraOptions = ''
-#           plugin-load-add = "auth_socket.so"
-#    '';
   };
 }
 
