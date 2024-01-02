@@ -18,8 +18,8 @@
   netcfg.gw4 = "91.228.90.81";
 
   networking.enableIPv6 = true
-  netcfg.ip6 = "2001:67c:22fc:2::93";
-  netcfg.gw6 = "2001:67c:22fc:2::1";
+  netcfg.ip6 = "2001:67c:22fc:100::93";
+  netcfg.gw6 = "2001:67c:22fc:100::1";
 
   netcfg.iface = "ens33"; netcfg.hostName = "dns02.emtorp.se";
 

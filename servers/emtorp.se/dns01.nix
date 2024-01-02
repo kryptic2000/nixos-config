@@ -6,7 +6,7 @@
       ../../../hardware-configuration.nix
       ../../config/base23.nix
       ../../config/users.nix
-      ../../services/networking.nix
+      ../../services/networking23.nix
       ../../config/dns_resolver_unbound.nix
     ];
 
