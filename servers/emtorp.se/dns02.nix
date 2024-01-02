@@ -14,14 +14,16 @@
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
 
-  netcfg.ip4 = "91.228.90.93";
+  netcfg.ip4 = "91.228.90.93/28";
   netcfg.gw4 = "91.228.90.81";
 
-  networking.enableIPv6 = true
-  netcfg.ip6 = "2001:67c:22fc:100::93";
+  networking.enableIPv6 = true;
+  netcfg.ip6 = "2001:67c:22fc:100::93/64";
   netcfg.gw6 = "2001:67c:22fc:100::1";
 
-  netcfg.iface = "ens33"; netcfg.hostName = "dns02.emtorp.se";
+  netcfg.iface = "ens33";
+  netcfg.hostName = "dns02";
+  netcfg.domain = "emtorp.se";
 
   netcfg.ns = [ "8.8.4.4" "8.8.8.8" ];
 }
