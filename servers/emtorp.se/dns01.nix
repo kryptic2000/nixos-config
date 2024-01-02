@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../../hardware-configuration.nix
-      ../../config/base.nix
+      ../../config/base23.nix
       ../../config/users.nix
       ../../services/networking.nix
       ../../config/dns_resolver_unbound.nix
@@ -21,8 +21,8 @@
   netcfg.ip6 = "2001:67c:22fc:1::133";
   netcfg.gw6 = "2001:67c:22fc:1::1";
 
-  netcfg.iface = "ens32";
-  netcfg.hostName = "dns05.emtorp.net";
+  netcfg.iface = "ens33";
+  netcfg.hostName = "dns01.emtorp.se";
 
   netcfg.ns = [ "8.8.4.4" "8.8.8.8" ];
 }
