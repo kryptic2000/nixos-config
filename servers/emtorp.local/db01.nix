@@ -24,7 +24,7 @@
   netcfg.ip6 = "2001:67c:22fc:1001::90/64";
   netcfg.gw6 = "2001:67c:22fc:1001::1";
 
-  netcfg.iface = "ens33";
+  netcfg.iface = "ens160";
   netcfg.hostName = "db01";
   netcfg.domain = "emtorp.local";
 }
