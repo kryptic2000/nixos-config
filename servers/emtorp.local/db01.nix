@@ -20,7 +20,7 @@
   netcfg.addr4 = "10.5.1.6";
   netcfg.addr6 = "2001:67c:22fc:1001::90";
 
-  networking.enableIPv6 = lib.mkForce false;
+  networking.enableIPv6 = true;
   netcfg.ip6 = "2001:67c:22fc:1001::90/64";
   netcfg.gw6 = "2001:67c:22fc:1001::1";
 
