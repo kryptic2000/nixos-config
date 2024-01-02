@@ -7,7 +7,7 @@
       ../../config/base23.nix
       ../../config/users.nix
       ../../services/networking23.nix
-      ../../config/dns_resolver_unbound.nix
+      ../../services/dns_resolver.nix
     ];
 
   # Use the GRUB 2 boot loader.
