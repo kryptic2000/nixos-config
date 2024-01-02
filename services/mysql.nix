@@ -8,9 +8,10 @@
     enable = true;
     package = pkgs.mysql80;
     dataDir = "/var/lib/mysql";
-    extraOptions = ''
-           plugin-load-add = "auth_socket.so"
-    '';
+    settings.mysqld.plugin-load-add = ["auth_socket.so"];
+#    extraOptions = ''
+#           plugin-load-add = "auth_socket.so"
+#    '';
   };
 }
 
