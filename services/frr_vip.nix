@@ -11,10 +11,6 @@
   }];
 
   services.frr = {
-     services = [
-       "static"
-       "bgp"
-       "mgmt"
-     ];
+    zebra.enable = true;
   };
 }
