@@ -22,8 +22,8 @@
       enable = true;
       vtyListenPort = 2605;
       config = ''
-        password 8 /NaNeW0pPSnMU
-        service password-encryption
+        password zebra
+        enable password zebra
         ip prefix-list ANYCAST seq 5 permit ${netcfg.vip4}/32
         ip prefix-list IMPORT seq 5 deny any
         ipv6 prefix-list ANYCAST6 seq 5 permit ${netcfg.vip6}/128
