@@ -20,9 +20,5 @@
      ];
      enable = true;
      vtyListenPort = 2605;
-     config = ''
-       router bgp 56848
-       neighbor ${netcfg.gw4} remote-as 56848
-     '';
   };
 }
