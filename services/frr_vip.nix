@@ -18,13 +18,11 @@
        "bgp"
        "mgmt"
      ];
-     serviceOptions = {
-       enable = true;
-       vtyListenPort = 2605;
-       config = ''
-         router bgp 56848
-         neighbor ${netcfg.gw4} remote-as 56848
-       '';
-     };
-   };
+     enable = true;
+     vtyListenPort = 2605;
+     config = ''
+       router bgp 56848
+       neighbor ${netcfg.gw4} remote-as 56848
+     '';
+  };
 }
