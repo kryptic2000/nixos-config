@@ -9,7 +9,7 @@
       ../../services/networking23.nix
       ../../services/dns_slave.nix
       ../../config/emtorp.net/ns1_zones.nix
-      ../../services/bgp_vip.nix
+      ../../services/frr_vip.nix
     ];
 
   # Use the GRUB 2 boot loader.
