@@ -13,10 +13,11 @@
   services.frr = {
     zebra = {
       enable = true;
-#      config = ''
+      config = ''
+        password default
 #        password 8 /NaNeW0pPSnMU
 #        service password-encryption
-#      '';
+      '';
     };
     bgp = {
       enable = true;
