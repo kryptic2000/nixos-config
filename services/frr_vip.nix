@@ -10,7 +10,8 @@
     prefixLength = 128;
   }];
 
-  services.frr = {
-    zebra.enable = true;
+  services.frr.zebra = {
+    enable = true;
+    vtyListenPort = 2506;
   };
 }
