@@ -14,9 +14,8 @@
     zebra = {
       enable = true;
       config = ''
-        password default
-#        password 8 /NaNeW0pPSnMU
-#        service password-encryption
+        password zebra
+        enable password zebra
       '';
     };
     bgp = {
