@@ -26,7 +26,7 @@
   netcfg.gw6 = "2001:67c:22fc:100::1";
 
   netcfg.vip4 = "91.228.90.35";
-  netcfg.vip6 = "2001:67c:22fc:5::1";
+  netcfg.vip6 = "2001:67c:22fc:250::1";
 
   netcfg.iface = "ens33";
   netcfg.hostName = "ns1";
