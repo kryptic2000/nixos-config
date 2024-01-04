@@ -21,7 +21,7 @@ in
     "dovecot.service"
   ];
 
-  networking.firewall.allowedTCPPorts = [ 143 993 ];
+  networking.firewall.allowedTCPPorts = [ 143 993 14650 ];
 
   nixpkgs.config.packageOverrides = super: {
     dovecot = super.dovecot.override { withMySQL = true; };
@@ -44,6 +44,11 @@ in
 
 
     extraConfig = ''
+      service auth {
+        inet_listener {
+          port = 14650
+        }
+      }
       passdb {
         driver = sql
         args = ${sqlConfig}
