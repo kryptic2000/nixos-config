@@ -13,13 +13,12 @@
   services.nginx = {
     enable = true;
     virtualHosts."imap01.emtorp.se" = {
-        root = "/var/www/html/";
+        root = "/var/www/acme-challenge";
         listen = [
           { addr = "0.0.0.0"; port = 80; }
-          { addr = "0.0.0.0"; port = 443; ssl = true;}
         ];
-        locations."/".extraConfig = ''
-          return 403;
+        locations."/.well-known/acme-challenge/".extraConfig = ''
+          return 404;
         '';
         addSSL = true;
         enableACME = true;
