@@ -17,9 +17,6 @@
         listen = [
           { addr = "0.0.0.0"; port = 80; }
         ];
-        locations."/.well-known/acme-challenge/".extraConfig = ''
-          return 404;
-        '';
         addSSL = true;
         enableACME = true;
     };
