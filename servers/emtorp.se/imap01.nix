@@ -10,6 +10,7 @@
       ../../config/mail-users.nix
       ../../services/networking23.nix
       ../../services/nfs-client.nix
+      ../../services/imap.nix
       #../../config/emtorp.net/smtp.nix
     ];
 
@@ -29,6 +30,5 @@
   netcfg.iface = "ens33";
   netcfg.hostName = "imap01";
   netcfg.domain = "emtorp.se";
-
 }
 
