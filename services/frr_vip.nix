@@ -23,19 +23,23 @@
         ipv6 prefix-list IMPORT6 seq 5 deny any
 
         router bgp 65500
-          bgp router-id ${netcfg.addr4}
-          network ${netcfg.vip4}/32
-          neighbor ${netcfg.gw4} remote-as 56848
-          neighbor ${netcfg.gw4} next-hop-self
-          neighbor ${netcfg.gw4} prefix-list IMPORT in
-          neighbor ${netcfg.gw4} prefix-list ANYCAST out
-           address-family ipv6
-             network ${netcfg.vip6}/128
-             neighbor ${netcfg.gw6} remote-as 56848
-             neighbor ${netcfg.gw6} prefix-list IMPORT6 in
-             neighbor ${netcfg.gw6} prefix-list ANYCAST6 out
-           address-family ipv6 unicast
-             neighbor ${netcfg.gw6} activate
+          bgp router-id 91.228.90.87
+          neighbor 91.228.90.81 remote-as 56848
+          neighbor 2001:67c:22fc:100::1 remote-as 56848
+
+          address-family ipv4 unicast
+            network ${netcfg.vip4}/32
+            neighbor 91.228.90.81 next-hop-self
+            neighbor 91.228.90.81 prefix-list IMPORT in
+            neighbor 91.228.90.81 prefix-list ANYCAST out
+          exit-address-family
+
+          address-family ipv6 unicast
+            network ${netcfg.vip6}/128
+            neighbor 2001:67c:22fc:100::1 activate
+            neighbor 2001:67c:22fc:100::1 prefix-list IMPORT6 in
+            neighbor 2001:67c:22fc:100::1 prefix-list ANYCAST6 out
+ exit-address-family
       '';
     };
   };
