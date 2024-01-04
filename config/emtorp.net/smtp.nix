@@ -65,7 +65,7 @@
       smtp_sasl_mechanism_filter = "plain,login";
       smtpd_client_restrictions = "permit_sasl_authenticated,reject";
       smtpd_sasl_type = "dovecot";
-      smtpd_sasl_path = "inet:91.228.90.90:14650";
+      smtpd_sasl_path = "inet:91.228.90.94:14650";
 
     };
     enableSmtp = true;
