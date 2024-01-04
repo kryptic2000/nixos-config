@@ -18,9 +18,9 @@
           { addr = "0.0.0.0"; port = 80; }
           { addr = "0.0.0.0"; port = 443; ssl = true;}
         ];
-        location / {
-                return 403;
-        }
+        locations."/".extraConfig = ''
+          return 403;
+        '';
         addSSL = true;
         enableACME = true;
     };
