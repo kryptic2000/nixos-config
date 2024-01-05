@@ -3,8 +3,8 @@
     services.nsd.zones = {
       "EMTORP" = {
         outgoingInterface = "${netcfg.addr4}";
-        allowNotify = [ "91.228.90.85 NOKEY" ];
-        requestXFR = [ "91.228.90.85 NOKEY" ];
+        allowNotify = [ "91.228.90.90 NOKEY" ];
+        requestXFR = [ "91.228.90.90 NOKEY" ];
         children = {
           "emtorp.net" = { data = ''
                 @ SOA ns1.emtorp.net adam.emtorp.se 1 3600 3600 1209600 86400
