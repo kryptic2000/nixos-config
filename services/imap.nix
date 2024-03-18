@@ -18,7 +18,7 @@ in
   ];
 
   security.acme.certs."${netcfg.hostName + "." + netcfg.domain}".reloadServices = [
-    "dovecot.service"
+    "dovecot2.service"
   ];
 
   networking.firewall.allowedTCPPorts = [ 143 993 14650 ];
